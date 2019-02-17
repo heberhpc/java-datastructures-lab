@@ -3,7 +3,6 @@
 package datastructureslab.list;
 
 
-
 public interface List <E>{
 
 	/*Get how many elements the list hold*/
