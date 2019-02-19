@@ -136,10 +136,8 @@ public class SingleLinkedList <E> extends AbstractList <E>{
 	//INNER CLASS - BEGINNIG
 	private class SNode <T>{
 		
-		//The element that SNode holds
+		//FIELDS
 		private T element;
-		
-		//The next SNode of the chain
 		private SNode <T> next;
 		
 		//MAIN CONSTRUCTOR
@@ -148,14 +146,18 @@ public class SingleLinkedList <E> extends AbstractList <E>{
 			next = null;
 		}
 		
+		//METHODS
+		//
 		public SNode <T> getNext() {
 			return next;
 		}
 		
-		public void setNext(SNode <T>n) {
+		//
+		public void setNext(SNode<T> n) {
 			this.next = n;
 		}
 		
+		//
 		public T getElement() {
 			return element;
 		}
@@ -169,7 +171,7 @@ public class SingleLinkedList <E> extends AbstractList <E>{
 		SNode<E> s = head;
 		for (int i = 0 ; i < size ; i++) {
 			s=s.getNext();
-			System.out.println("index :"+i+ "-" + s.getElement() );
+			System.out.println("index "+i+ ": " + s.getElement() );
 		}
 		
 		System.out.println ("Total of : "+size+" elements");
