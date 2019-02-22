@@ -1,4 +1,4 @@
-package testing;
+package junit_test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,9 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import datastructureslab.list.List;
-import datastructureslab.list.DoubleLinkedList;
+import datastructureslab.list.SingleLinkedList;
 
-class DoubleLinkedListTest {
+class SingleLinkedListTest {
 	
 	//---TEST INSTANCES---//
 	//EMPTY LIST
@@ -24,12 +24,12 @@ class DoubleLinkedListTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		emptyList = new DoubleLinkedList<String>();
+		emptyList = new SingleLinkedList<String>();
 		
-		smallList = new DoubleLinkedList<String>();
+		smallList = new SingleLinkedList<String>();
 		smallList.addFirst("HEBER");
 		
-		largeList = new DoubleLinkedList<String>();
+		largeList = new SingleLinkedList<String>();
 		largeList.addFirst("HEBER");
 		largeList.addFirst("SARA");
 		largeList.addFirst("PAMELA");
@@ -380,7 +380,7 @@ class DoubleLinkedListTest {
 	}
 
 	@Test
-	void testDoubleLinkedList() {
+	void testSingleLinkedList() {
 		
 		//emptylist
 		emptyList.printElements();

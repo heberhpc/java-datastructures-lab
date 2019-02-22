@@ -36,7 +36,6 @@ public class DoubleLinkedList<E> extends AbstractList<E> {
 
 	@Override
 	public boolean addAt(E element, int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
 		
 		//is a valid index:
 		if ((index < 0) || (index > size)){
