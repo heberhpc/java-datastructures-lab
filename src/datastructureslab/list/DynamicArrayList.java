@@ -1,5 +1,7 @@
 package datastructureslab.list;
 
+
+
 public class DynamicArrayList <E> extends AbstractList<E>{
 	
 	//FIELDS
@@ -7,18 +9,15 @@ public class DynamicArrayList <E> extends AbstractList<E>{
 	
 	private E [] data;
 	
-	private int startSize;
+	private int startSize=10;
 	private int resizeFactor = 2;
 	
 	//MAIN CONSTRUCTOR
 	@SuppressWarnings("unchecked")
-	public DynamicArrayList() {
-		
+	public DynamicArrayList() {	
 		data = (E[]) (new Object[startSize]); 
 		size=0;
-		
 	}
-	
 	
 	@Override
 	public int getSize() {
@@ -46,29 +45,81 @@ public class DynamicArrayList <E> extends AbstractList<E>{
 		}else {
 			resizeUp();
 		}
-		
-		
+
 		//add operation
-		while()
+		int a = size;
+		while(a > index) {
+			
+			data[a]=data[a-1];
+			//System.out.println("data[a]="+a+" // data[a-1]="+(a-1));
+			a--;
+		}
+		data[a]=element;
+		size++;
 		
-		return false;
+		
+		return true;
 	}
 
 	@Override
 	public E getAt(int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
-		return null;
+		//is a empty list
+		if (size==0) {
+			throw new IndexOutOfBoundsException("Empty List - index :"+index);
+		}
+		
+		//is a valid index
+		if ((index < 0) || (index > size-1)){
+			//not valid index:
+			throw new IndexOutOfBoundsException("Invalid Index :"+index);
+		}		
+		
+		return data[index];
 	}
 
 	@Override
 	public E removeAt(int index) throws IndexOutOfBoundsException {
 		// TODO Auto-generated method stub
-		return null;
+		//VERIFICATIONS
+		//is a empty list?
+		if (size==0){
+			throw new IndexOutOfBoundsException("Invalid Index :"+index);
+		}
+		
+		//is a valid index?
+		if ((index < 0) || (index >= size)){
+			throw new IndexOutOfBoundsException("Invalid Index :"+index);
+		}
+		
+		E target = data[index];
+		
+		int a=index;
+		while(a < size) {
+			
+			data[a]=data[a+1];
+			//System.out.println("data[a]="+a+" // data[a-1]="+(a-1));
+			a++;
+		}		
+		size--;
+		
+		
+		
+		return target;
 	}
 
 	@Override
 	public void printElements() {
-		// TODO Auto-generated method stub
+
+		System.out.println("---start---");
+		System.out.println("Print All Elements");
+		
+		for (int i = 0 ; i < size ; i++) {
+			
+			System.out.println("index "+i+ ": " + data[i] );
+		}
+		
+		System.out.println ("Total of : "+size+" elements");
+		System.out.println("---end---");
 		
 	}
 	
@@ -79,11 +130,14 @@ public class DynamicArrayList <E> extends AbstractList<E>{
 		int updatedSize = data.length*resizeFactor; 
 		E [] resizedData = (E[]) (new Object[updatedSize]);
 		
-		for (int i = 0 ; i < data.length ;i++) {
+		System.out.println("RESIZEUPbefore");
+		
+		for (int i = 0 ; i < 10 ;i++) {
 			resizedData[i]=data[i];
+			System.out.println("inside");
 		}
 		
-		System.out.println("ResizedUp");
+		System.out.println("RESIZEUP");
 	}
 	
 }
