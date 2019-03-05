@@ -111,7 +111,7 @@ public class SingleLinkedList <E> extends AbstractList <E>{
 			throw new IndexOutOfBoundsException("Invalid Index :"+index);
 		}
 		
-		//REMOVE OPEARTION
+		//REMOVE OPERATION
 		//find right position (before and after nodes)
 		SNode<E> before = head;
 		SNode<E> target;
@@ -132,36 +132,6 @@ public class SingleLinkedList <E> extends AbstractList <E>{
 			
 		return target.getElement();
 	}
-
-	//INNER CLASS - BEGINNIG
-	private class SNode <T>{
-		
-		//FIELDS
-		private T element;
-		private SNode <T> next;
-		
-		//MAIN CONSTRUCTOR
-		public SNode (T element) {
-			this.element = element;
-			next = null;
-		}
-		
-		//METHODS
-		//
-		public SNode <T> getNext() {
-			return next;
-		}
-		
-		//
-		public void setNext(SNode<T> n) {
-			this.next = n;
-		}
-		
-		//
-		public T getElement() {
-			return element;
-		}
-	}//INNER CLASS - END
 
 	@Override
 	public void printElements() {

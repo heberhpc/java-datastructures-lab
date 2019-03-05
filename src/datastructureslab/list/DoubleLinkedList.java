@@ -140,48 +140,4 @@ public class DoubleLinkedList<E> extends AbstractList<E> {
 		System.out.println ("Total of : "+size+" elements");
 		System.out.println("---end---");
 	}
-	
-	//INNER CLASS - START
-	//INNER CLASS - BEGINNIG
-	private class DNode<T> {
-		
-		//FIELDS
-		private T element;
-		private DNode<T> next;
-		private DNode<T> prev;
-		
-		
-		//MAIN CONSTRUCTOR
-		private DNode (T element){
-			this.element = element;
-			this.next=null;
-			this.prev=null;
-		}
-		
-		//METHODS
-		//
-		private T getElement() {
-			return element;
-		}
-		
-		//
-		private DNode<T> getPrev() {
-			return prev;
-		}
-		
-		//
-		private void setPrev(DNode<T> s){
-			prev = s;
-		}
-		
-		//
-		private DNode<T> getNext(){
-			return next;
-		}
-		
-		//
-		private void setNext(DNode<T> s){
-			next=s;
-		}
-	}//INNER CLASS - END
 }
