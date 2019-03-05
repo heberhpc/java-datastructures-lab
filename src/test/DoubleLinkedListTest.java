@@ -1,4 +1,4 @@
-package junit_test;
+package test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,9 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import datastructureslab.list.List;
-import datastructureslab.list.DynamicArrayList;
+import datastructureslab.list.DoubleLinkedList;
 
-class DynamicArrayListTest {
+class DoubleLinkedListTest {
 	
 	//---TEST INSTANCES---//
 	//EMPTY LIST
@@ -24,12 +24,12 @@ class DynamicArrayListTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		emptyList = new DynamicArrayList<String>();
+		emptyList = new DoubleLinkedList<String>();
 		
-		smallList = new DynamicArrayList<String>();
+		smallList = new DoubleLinkedList<String>();
 		smallList.addFirst("HEBER");
 		
-		largeList = new DynamicArrayList<String>();
+		largeList = new DoubleLinkedList<String>();
 		largeList.addFirst("HEBER");
 		largeList.addFirst("SARA");
 		largeList.addFirst("PAMELA");

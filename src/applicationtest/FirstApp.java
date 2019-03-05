@@ -6,14 +6,13 @@ public class FirstApp {
 	
 	public static void main (String [] args) {
 		
-		List<String> l = new DynamicArrayList<String>();
+		CircularyList<String> l = new CircularySingleLinkedList<String>();
 		l.addFirst("HEBER");
 		l.addFirst("SARA");
-		l.addFirst("RAQUEL");
-		l.addLast("Samuel");
+		l.addFirst("SAMUEL");
 		l.printElements();
 		System.out.println("SIZE "+ l.getSize());
-		l.printElements();
+	
 		
 		
 	}

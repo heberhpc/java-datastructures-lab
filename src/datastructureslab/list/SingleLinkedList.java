@@ -42,39 +42,39 @@ public class SingleLinkedList <E> extends AbstractList <E>{
 		if ((index < 0) || (index > size)){
 			//not valid index:
 			throw new IndexOutOfBoundsException("Invalid Index :"+index);
+		}
 		
 		// is a null value?
-		}else if  (element == null){
+		if  (element == null){
 			//yes: is null:
 			System.out.println("Invalid Entry : NULL value");
 			return false;
+		}
 		
 		// is a valid index AND is not null:
-		}else {
-			//yes, valid index:
-			
-			//create a new node
-			SNode<E> s = new SNode<E>(element);
-			
-			// find right place (before and after nodes)
-			SNode<E> before = head;
-			SNode<E> after;
-			for (int i = 0 ; i < index ; i++) {
-				before=before.getNext();
-			}
-			after=before.getNext();
-			
-			//update references
-			before.setNext(s);
-			s.setNext(after);
-			
-			//update size
-			size++;
-			
-			return true;
+		//ADD OPERATION
+		
+		//create a new node
+		SNode<E> s = new SNode<E>(element);
+		
+		// find right place (before and after nodes)
+		SNode<E> before = head;
+		SNode<E> after;
+		for (int i = 0 ; i < index ; i++) {
+			before=before.getNext();
 		}
+		after=before.getNext();
+		
+		//update references
+		before.setNext(s);
+		s.setNext(after);
+		
+		//update size
+		size++;
+		
+		return true;
 	}
-
+	
 	@Override
 	public E getAt(int index) throws IndexOutOfBoundsException {
 		
