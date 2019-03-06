@@ -1,28 +1,23 @@
 package datastructureslab.list;
 
-public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
-	
+public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
+
 	//FIELDS
-	private SNode<E> head;
-	private SNode<E> tail;
-	
+	private DNode<E> head;
+	private DNode<E> tail;
 	private int size;
 	
-	
-	
 	//CONSTRUCTOR
-	public CircularySingleLinkedList () {
-		
+	public CircularyDoubleLinkedList() {
 		head=null;
 		tail=null;
 		size=0;
-		
 	}
 	
 	
+	//INHERITED METHOD
 	@Override
 	public boolean rotate() {
-		
 		if(size==0) {
 			System.out.println("[INFOR]: Empty List - Impossible Rotatation");
 			return false;
@@ -33,13 +28,13 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 		}
 	}
 
-	
 	@Override
 	public void printElements() {
+		
 		System.out.println("---start---");
 		System.out.println("Print All Elements");
 		
-		SNode<E> s = head;
+		DNode<E> s = head;
 		for (int i = 0 ; i < size ; i++) {
 			System.out.println("index "+i+ ": " + s.getElement() );
 			s=s.getNext();
@@ -48,18 +43,17 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 		
 		System.out.println ("Total of : "+size+" elements");
 		System.out.println("---end---");			
+		
 	}
 
-	
 	@Override
 	public int getSize() {
 		return size;
 	}
 
-	
 	@Override
 	public boolean addAt(E element, int index) throws IndexOutOfBoundsException {
-		
+	
 		//is a valid index?
 		if ((index < 0) || (index > size)){
 			//not valid index:
@@ -75,69 +69,73 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 		
 		// is a valid index AND is not null:
 		//ADD OPERATION
-		//is a emptiy List?
+		
+		//create the new node
+		DNode<E> n = new DNode<E>(element);
+		
+		//references
+		DNode<E> before;
+		DNode<E> after;
+		
+		//is a empty list:
 		if(size==0) {
 			
-			SNode<E> n = new SNode(element);
+			n.setNext(n);
+			n.setPrev(n);
 			head=n;
 			tail=n;
-			n.setNext(n);
-			
+						
 			size++;
 			
 			return true;
+		//is a addition at head?
+		}else if (index==0) {
 			
-		//is addition at head?
-		}else if (index == 0 ) {
-			
-			SNode<E> n = new SNode(element);
+			head.setPrev(n);
 			n.setNext(head);
+			n.setPrev(tail);
+			tail.setNext(n);
 			head=n;
-			tail.setNext(head);
 			
 			size++;
 			
 			return true;
-			
-		//is a tail addition
+		//is a addition at tail?
 		}else if (index == size-1) {
 			
-			SNode<E>before = head;
-			for (int i = 0 ; i < index-1 ; i++ ) {
-				before=before.getNext();
-			}
-			
-			SNode<E> n = new SNode<E>(element);
-			tail=n;
-			before.setNext(n);
+			tail.setNext(n);
+			n.setPrev(tail);
 			n.setNext(head);
-			
-			size++;
-			return true;
-		//not a head or tail addition
-			
-		}else {
-			
-			SNode<E> n = new SNode<E>(element);
-			
-			SNode<E>before = head;
-			for (int i = 0 ; i < index-1 ; i++ ) {
-				before=before.getNext();
-			}
-			SNode<E>after = before.getNext();
-			
-			before.setNext(n);
-			n.setNext(after);
+			head.setPrev(n);
+			tail=n;
 			
 			size++;
 			
 			return true;
+			
 		}
+		
+		//finding references
+		before=head;
+		for (int i = 0 ; i < index-1 ; i ++) {
+			before=before.getNext();
+		}
+		after=before.getNext();
+		
+		//update references
+		after.setPrev(n);
+		n.setNext(after);
+		before.setNext(n);
+		n.setPrev(before);
+		
+		size++;
+		
+		return true;
 	}
 
 	@Override
 	public E getAt(int index) throws IndexOutOfBoundsException {
-
+		
 		//is a empty list
 		if (size==0) {
 			throw new IndexOutOfBoundsException("Empty List - index :"+index);
@@ -150,17 +148,15 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 		}
 		
 		//get operation
-		SNode<E> target = head;
+		DNode<E> target = head;
 		for(int i = 0 ; i < index ; i++) {
 			target=target.getNext();
 		}
 		return target.getElement();
-
 	}
 
 	@Override
 	public E removeAt(int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
 		
 		//VERIFICATIONS
 		//is a empty list?
@@ -173,9 +169,9 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 			throw new IndexOutOfBoundsException("Invalid Index :"+index);
 		}
 		
-		SNode<E> before;
-		SNode<E> target;
-		SNode<E> after;
+		DNode<E> before;
+		DNode<E> target;
+		DNode<E> after;
 		
 		//the list has only 1 item?
 		if (size==1) {
@@ -192,27 +188,27 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 		}else if (index==0) {
 			
 			target=head;
-			head=target.getNext();
+			head=head.getNext();
 			tail.setNext(head);
+			head.setPrev(tail);
 			
 			size--;
 			
 			return target.getElement();
-			
+		
 		//it's a removal at tail?
 		}else if (index == size-1) {
-			
-			before=head;
-			for (int i = 0 ; i < index-1 ; i++) {
-				before=before.getNext();
-			}
-			target=before.getNext();
-			tail=before;
+		
+			target=tail;
+			tail=tail.getPrev();
+			head.setPrev(tail);
 			tail.setNext(head);
 			
 			size--;
 			
 			return target.getElement();
+			
+		
 		}else {
 			
 			before=head;
@@ -221,11 +217,13 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 			}
 			target=before.getNext();
 			after=target.getNext();
+			
 			before.setNext(after);
+			after.setPrev(before);
 			
 			size--;
 			
 			return target.getElement();
-		}
+		}		
 	}
 }
