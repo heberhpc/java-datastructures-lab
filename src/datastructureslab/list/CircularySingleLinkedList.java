@@ -3,12 +3,12 @@ package datastructureslab.list;
 public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 	
 	//FIELDS
+	//head and tail SENTINELS
 	private SNode<E> head;
 	private SNode<E> tail;
 	
+	//size of the list
 	private int size;
-	
-	
 	
 	//CONSTRUCTOR
 	public CircularySingleLinkedList () {
@@ -19,10 +19,12 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 		
 	}
 	
-	
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.CircularyList#rotate()
+	 */
 	@Override
 	public boolean rotate() {
-		
+
 		if(size==0) {
 			System.out.println("[INFOR]: Empty List - Impossible Rotatation");
 			return false;
@@ -33,7 +35,9 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 		}
 	}
 
-	
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.List#printElements()
+	 */
 	@Override
 	public void printElements() {
 		System.out.println("---start---");
@@ -51,12 +55,17 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 	}
 
 	
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#getSize()
+	 */
 	@Override
 	public int getSize() {
 		return size;
 	}
 
-	
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#addAt(java.lang.Object, int)
+	 */
 	@Override
 	public boolean addAt(E element, int index) throws IndexOutOfBoundsException {
 		
@@ -74,8 +83,9 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 		}
 		
 		// is a valid index AND is not null:
+		
 		//ADD OPERATION
-		//is a emptiy List?
+		//is a empty List?
 		if(size==0) {
 			
 			SNode<E> n = new SNode(element);
@@ -114,8 +124,8 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 			
 			size++;
 			return true;
-		//not a head or tail addition
 			
+		//not a head or tail addition
 		}else {
 			
 			SNode<E> n = new SNode<E>(element);
@@ -135,6 +145,9 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#getAt(int)
+	 */
 	@Override
 	public E getAt(int index) throws IndexOutOfBoundsException {
 
@@ -155,12 +168,13 @@ public class CircularySingleLinkedList <E> extends AbstractCircularyList<E>{
 			target=target.getNext();
 		}
 		return target.getElement();
-
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#removeAt(int)
+	 */
 	@Override
 	public E removeAt(int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
 		
 		//VERIFICATIONS
 		//is a empty list?

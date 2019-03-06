@@ -14,8 +14,9 @@ public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 		size=0;
 	}
 	
-	
-	//INHERITED METHOD
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.CircularyList#rotate()
+	 */
 	@Override
 	public boolean rotate() {
 		if(size==0) {
@@ -28,6 +29,9 @@ public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 		}
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.List#printElements()
+	 */
 	@Override
 	public void printElements() {
 		
@@ -38,14 +42,15 @@ public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 		for (int i = 0 ; i < size ; i++) {
 			System.out.println("index "+i+ ": " + s.getElement() );
 			s=s.getNext();
-			
 		}
 		
 		System.out.println ("Total of : "+size+" elements");
 		System.out.println("---end---");			
-		
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#getSize()
+	 */
 	@Override
 	public int getSize() {
 		return size;
@@ -68,8 +73,8 @@ public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 		}
 		
 		// is a valid index AND is not null:
-		//ADD OPERATION
 		
+		//ADD OPERATION
 		//create the new node
 		DNode<E> n = new DNode<E>(element);
 		
@@ -88,6 +93,7 @@ public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 			size++;
 			
 			return true;
+			
 		//is a addition at head?
 		}else if (index==0) {
 			
@@ -100,6 +106,7 @@ public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 			size++;
 			
 			return true;
+			
 		//is a addition at tail?
 		}else if (index == size-1) {
 			
@@ -113,26 +120,30 @@ public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 			
 			return true;
 			
-		}
-		
-		//finding references
-		before=head;
-		for (int i = 0 ; i < index-1 ; i ++) {
+		//is an addition between two elements?
+		}else {
+			//finding references
+			before=head;
+			for (int i = 0 ; i < index-1 ; i ++) {
 			before=before.getNext();
 		}
-		after=before.getNext();
+			after=before.getNext();
 		
-		//update references
-		after.setPrev(n);
-		n.setNext(after);
-		before.setNext(n);
-		n.setPrev(before);
+			//update references
+			after.setPrev(n);
+			n.setNext(after);
+			before.setNext(n);
+			n.setPrev(before);
 		
-		size++;
+			size++;
 		
-		return true;
+			return true;
+		}
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#getAt(int)
+	 */
 	@Override
 	public E getAt(int index) throws IndexOutOfBoundsException {
 		
@@ -155,6 +166,9 @@ public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 		return target.getElement();
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#removeAt(int)
+	 */
 	@Override
 	public E removeAt(int index) throws IndexOutOfBoundsException {
 		
@@ -207,8 +221,8 @@ public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 			size--;
 			
 			return target.getElement();
-			
 		
+		//it's a removal between two nodes?
 		}else {
 			
 			before=head;

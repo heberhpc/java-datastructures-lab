@@ -1,14 +1,22 @@
+/*
+*
+*@author	Heber H. P. Coutinho
+*@email		heberhpc@gmail.com
+*
+*/
+
 package datastructureslab.list;
-
-
 
 public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 	
 	//FIELDS
+	//size of list
 	private int size;
-	
+
+	//array to hold items
 	private E [] data;
 	
+	//array start size / and resize factor if it needs to increase or decrease 	
 	private int startSize=10;
 	private int resizeFactor = 2;
 	
@@ -19,11 +27,17 @@ public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 		size=0;
 	}
 	
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#getSize()
+	 */
 	@Override
 	public int getSize() {
 		return size;
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#addAt(java.lang.Object, int)
+	 */
 	@Override
 	public boolean addAt(E element, int index) throws IndexOutOfBoundsException {
 		
@@ -50,7 +64,6 @@ public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 		while(a > index) {
 			
 			data[a]=data[a-1];
-			//System.out.println("data[a]="+a+" // data[a-1]="+(a-1));
 			a--;
 		}
 		data[a]=element;
@@ -59,6 +72,9 @@ public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#getAt(int)
+	 */
 	@Override
 	public E getAt(int index) throws IndexOutOfBoundsException {
 		//is a empty list
@@ -75,9 +91,12 @@ public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 		return data[index];
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.AbstractList#removeAt(int)
+	 */
 	@Override
 	public E removeAt(int index) throws IndexOutOfBoundsException {
-		// TODO Auto-generated method stub
+		
 		//VERIFICATIONS
 		//is a empty list?
 		if (size==0){
@@ -99,12 +118,13 @@ public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 			a++;
 		}		
 		size--;
-		
-		
-		
+	
 		return target;
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.List#printElements()
+	 */
 	@Override
 	public void printElements() {
 
@@ -118,32 +138,32 @@ public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 		
 		System.out.println ("Total of : "+size+" elements");
 		System.out.println("---end---");
-		
 	}
 	
 	//HELPER METHODS
+	/**
+	 * Resize (increase) the internal array to hold more items
+	 */
 	@SuppressWarnings("unchecked")
 	private void resizeUp() {
 		
 		int updatedSize = data.length*resizeFactor; 
 		E [] resizedData = (E[]) (new Object[updatedSize]);
 		
-		System.out.println("RESIZEUPbefore");
-		
 		for (int i = 0 ; i < 10 ;i++) {
 			resizedData[i]=data[i];
 			System.out.println("inside");
 		}
-		
-		System.out.println("RESIZEUP");
 	}
 
+	/* (non-Javadoc)
+	 * @see datastructureslab.list.CircularyList#rotate()
+	 */
 	@Override
 	public boolean rotate() {
-		// TODO Auto-generated method stub
 		
 		if(size==0) {
-			System.out.println("[INFOR]: Empty List - Impossible Rotatation");
+			System.out.println("[INFO] Empty List - Impossible Rotatation");
 			return false;
 		
 		}else {
@@ -153,7 +173,8 @@ public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 				data[i]=copy[i+1];
 				
 			}
-			//SHIFT THE FIRST
+			
+			//shift the first item
 			data[size-1]=copy[0];
 			
 			return true;

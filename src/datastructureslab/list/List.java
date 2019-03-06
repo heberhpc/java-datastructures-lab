@@ -5,11 +5,19 @@ package datastructureslab.list;
 
 public interface List <E>{
 
-	/*Get how many elements the list hold*/
+	/**
+	 * Get how many elements the list hold
+	 * @return a int 
+	 */
 	int getSize();
 	
 	//--ADD OPERATION
-	/*Add a element at first position*/
+	
+	/**
+	 * Add a element at first position
+	 * @param element
+	 * @return 
+	 */
 	boolean addFirst(E element);
 	
 	/*Add a element at last position (index origin=0)*/
