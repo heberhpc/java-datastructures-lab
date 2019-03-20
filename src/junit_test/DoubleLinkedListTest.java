@@ -1,35 +1,36 @@
-package test;
+package junit_test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import datastructureslab.list.CircularyDynamicArrayList;
-import datastructureslab.list.CircularyList;
+import datastructures.list.DoubleLinkedList;
+import datastructures.list.List;
 
-class CircularyDynamicArrayListTest {
+
+class DoubleLinkedListTest {
 	
 	//---TEST INSTANCES---//
 	//EMPTY LIST
-	CircularyList<String> emptyList;
+	List<String> emptyList;
 				
 	//SMALL LIST (ONE ELEMENT)
-	CircularyList<String> smallList;
+	List<String> smallList;
 			
 	//LARGE LIST (MORE THAN ONE ELEMENT)
-	CircularyList<String> largeList;
+	List<String> largeList;
 	
 
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		emptyList = new CircularyDynamicArrayList<String>();
+		emptyList = new DoubleLinkedList<String>();
 		
-		smallList = new CircularyDynamicArrayList<String>();
+		smallList = new DoubleLinkedList<String>();
 		smallList.addFirst("HEBER");
 		
-		largeList = new CircularyDynamicArrayList<String>();
+		largeList = new DoubleLinkedList<String>();
 		largeList.addFirst("HEBER");
 		largeList.addFirst("SARA");
 		largeList.addFirst("PAMELA");
@@ -37,27 +38,6 @@ class CircularyDynamicArrayListTest {
 		largeList.addFirst("SAMUEL");
 		largeList.addFirst("JUNIOR");
 		largeList.addFirst("ANA");
-	}
-	
-	@Test
-	void testRotate() {
-		
-		//EMPTY LIST
-		assertEquals(emptyList.rotate(),false);
-		
-		//SMALL LIST (ONE ELEMENT)
-		assertEquals(smallList.rotate(),true);
-		assertEquals(smallList.getFirst(),"HEBER");
-				
-		//LARGE LIST (MORE THAN ONE ELEMENT)
-		assertEquals(largeList.rotate(),true);
-		assertEquals(largeList.getAt(0),"JUNIOR");
-		assertEquals(largeList.getAt(1),"SAMUEL");
-		assertEquals(largeList.getAt(2),"RAQUEL");
-		assertEquals(largeList.getAt(3),"PAMELA");
-		assertEquals(largeList.getAt(4),"SARA");
-		assertEquals(largeList.getAt(5),"HEBER");
-		assertEquals(largeList.getAt(6),"ANA");
 	}
 
 	@Test

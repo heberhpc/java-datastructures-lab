@@ -5,7 +5,7 @@
 *
 */
 
-package datastructureslab.list;
+package datastructures.list;
 
 public interface CircularyList<E> extends List<E>{
 	

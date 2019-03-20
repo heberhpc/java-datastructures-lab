@@ -1,4 +1,4 @@
-package datastructureslab.list;
+package datastructures.list;
 
 public class CircularyDoubleLinkedList <E> extends AbstractCircularyList<E>{
 

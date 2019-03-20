@@ -5,7 +5,7 @@
 *
 */
 
-package datastructureslab.list;
+package datastructures.list;
 
 public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 	

@@ -1,12 +1,13 @@
-package test;
+package junit_test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import datastructureslab.list.CircularyDoubleLinkedList;
-import datastructureslab.list.CircularyList;
+import datastructures.list.CircularyDoubleLinkedList;
+import datastructures.list.CircularyList;
+
 
 
 class CircularyDoubleLinkedListTest {

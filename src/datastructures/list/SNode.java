@@ -1,6 +1,6 @@
 /**/
 
-package datastructureslab.list;
+package datastructures.list;
 
 public class SNode <T>{
 

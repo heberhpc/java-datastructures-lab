@@ -1,4 +1,4 @@
-package datastructureslab.list;
+package datastructures.list;
 
 
 

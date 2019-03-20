@@ -1,21 +1,19 @@
-package applicationtest;
+package app_lab;
 
-import datastructureslab.list.*;
+import datastructures.list.List;
+import datastructures.list.SingleLinkedList;
 
 public class FirstApp {
 	
 	public static void main (String [] args) {
 		
-		CircularyList<String> l = new CircularyDynamicArrayList<String>();
+		List<String> l = new SingleLinkedList<String>();
 		l.addFirst("HEBER");
 		l.addFirst("SARA");
 		l.addFirst("SAMUEL");
 		l.printElements();
 		System.out.println("SIZE "+ l.getSize());
-		l.rotate();
-		l.printElements();
-		l.rotate();
-		l.printElements();
+		
 		
 		
 	}

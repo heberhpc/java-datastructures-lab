@@ -5,7 +5,7 @@
 *
 */
 
-package datastructureslab.list;
+package datastructures.list;
 
 public abstract class AbstractList <E> implements List <E>{
 

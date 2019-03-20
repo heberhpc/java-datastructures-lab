@@ -1,15 +1,16 @@
-package test;
+package junit_test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import datastructureslab.list.CircularyList;
-import datastructureslab.list.CircularySingleLinkedList;
+import datastructures.list.CircularyDynamicArrayList;
+import datastructures.list.CircularyList;
 
 
-class CircularySingleLinkedListTest {
+
+class CircularyDynamicArrayListTest {
 	
 	//---TEST INSTANCES---//
 	//EMPTY LIST
@@ -25,12 +26,12 @@ class CircularySingleLinkedListTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		emptyList = new CircularySingleLinkedList<String>();
+		emptyList = new CircularyDynamicArrayList<String>();
 		
-		smallList = new CircularySingleLinkedList<String>();
+		smallList = new CircularyDynamicArrayList<String>();
 		smallList.addFirst("HEBER");
 		
-		largeList = new CircularySingleLinkedList<String>();
+		largeList = new CircularyDynamicArrayList<String>();
 		largeList.addFirst("HEBER");
 		largeList.addFirst("SARA");
 		largeList.addFirst("PAMELA");
@@ -402,7 +403,7 @@ class CircularySingleLinkedListTest {
 	}
 
 	@Test
-	void testSingleLinkedList() {
+	void testDoubleLinkedList() {
 		
 		//emptylist
 		emptyList.printElements();

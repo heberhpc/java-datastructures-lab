@@ -5,7 +5,7 @@
 *
 */
 
-package datastructureslab.list;
+package datastructures.list;
 
 public abstract class AbstractCircularyList <E> extends AbstractList<E> implements CircularyList<E>{
 
