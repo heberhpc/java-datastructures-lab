@@ -6,7 +6,7 @@
 */
 
 
-package datastructures.list;
+package datastructures.stack;
 
 
 public interface Stack <E>{

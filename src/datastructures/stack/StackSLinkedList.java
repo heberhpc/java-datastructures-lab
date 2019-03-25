@@ -1,4 +1,7 @@
-package datastructures.list;
+package datastructures.stack;
+
+import datastructures.list.List;
+import datastructures.list.SingleLinkedList;
 
 public class StackSLinkedList<E> implements Stack<E>{
 	

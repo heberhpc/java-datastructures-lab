@@ -6,9 +6,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import datastructures.stack.Stack;
-import datastructures.stack.StackSLinkedList;
+import datastructures.stack.StackFixedLenght;
 
-class StackSLinkedListTest {
+
+class StackFixedLenghtTest {
 	
 	Stack<String> emptyStack;
 	
@@ -23,14 +24,14 @@ class StackSLinkedListTest {
 	void setUp() throws Exception {
 		
 		//empty
-		emptyStack = new StackSLinkedList<String>();
+		emptyStack = new StackFixedLenght<String>(10);
 		
 		//one item
-		shortStack = new StackSLinkedList<String>();
+		shortStack = new StackFixedLenght<String>(10);
 		shortStack.push("One");
 		
 		//many items
-		longStack = new StackSLinkedList<String>();
+		longStack = new StackFixedLenght<String>(10);
 		longStack.push("One");
 		longStack.push("Two");
 		longStack.push("Three");
