@@ -1,82 +1,57 @@
 package app_lab;
 
-import datastructures.stack.Stack;
-import datastructures.stack.StackFixedLenght;
+import datastructures.queue.Queue;
+import datastructures.queue.QueueFixedArray;
 
 public class FirstApp {
 	
 	public static void main (String [] args) {
 		
-		Stack<String> stack = new StackFixedLenght<String>(10);
-		stack.printElements();
+		Queue<String> q = new QueueFixedArray<String>(8);
 		
-		stack.push("Heber");
-		stack.printElements();
 		
-		stack.push("Sara");
-		stack.printElements();
-		
-		stack.push("Raquel");
-		stack.printElements();
-		
-		stack.push("Pamela");
-		stack.printElements();
-		
-		stack.push("Samuel");
-		stack.printElements();
-		
-		stack.push("Junior");
-		stack.printElements();
-		
-		stack.push("Camila");
-		stack.printElements();
-		
-		stack.push("Sofia");
-		stack.printElements();
-		
-		stack.push("Ana");
-		stack.printElements();
-		
-		stack.push("Gabriel");
-		stack.printElements();
-		
-		stack.push("Last");
-		stack.printElements();
-		
-		stack.pop();
-		stack.printElements();
+		//q.printElements();
+		q.enqueue("One");
+		q.enqueue("Two");
+		q.enqueue("Three");
+		q.enqueue("Four");
+		q.enqueue("Five");
+		q.enqueue("Six");
+		q.enqueue("Seven");
+		q.enqueue("Eight");
 
-		stack.pop();
-		stack.printElements();
-
-		stack.pop();
-		stack.printElements();
-
-		stack.pop();
-		stack.printElements();
-
-		stack.pop();
-		stack.printElements();
-
-		stack.pop();
-		stack.printElements();
-
-		stack.pop();
-		stack.printElements();
-
-		stack.pop();
-		stack.printElements();
-
-		stack.pop();
-		stack.printElements();
-
-		stack.pop();
-		stack.printElements();
-
-		stack.pop();
-		stack.printElements();
 		
 		
+		
+		q.printElements();
+		q.dequeue();
+		q.printElements();
+
+		q.dequeue();
+		q.printElements();
+
+		q.dequeue();
+		q.printElements();
+		
+		q.enqueue("EXTRA");
+		q.printElements();
+		
+		q.enqueue("EXTRA1");
+		q.printElements();
+		
+		q.enqueue("EXTRA2");
+		q.printElements();
+
+
+		
+		//q.enqueue("EXTRA");
+		//q.printElements();
+		
+		
+	}
+	
+	public static void printInfo(String s) {
+		System.out.println("[Info] "+s);
 	}
 
 }

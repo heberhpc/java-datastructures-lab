@@ -5,33 +5,32 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import datastructures.list.CircularyDoubleLinkedList;
-import datastructures.list.CircularyList;
+import datastructures.list.CircularlyList;
+import datastructures.list.CircularlySingleLinkedList;
 
 
-
-class CircularyDoubleLinkedListTest {
+class CircularlySingleLinkedListTest {
 	
 	//---TEST INSTANCES---//
 	//EMPTY LIST
-	CircularyList<String> emptyList;
+	CircularlyList<String> emptyList;
 				
 	//SMALL LIST (ONE ELEMENT)
-	CircularyList<String> smallList;
+	CircularlyList<String> smallList;
 			
 	//LARGE LIST (MORE THAN ONE ELEMENT)
-	CircularyList<String> largeList;
+	CircularlyList<String> largeList;
 	
 
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		emptyList = new CircularyDoubleLinkedList<String>();
+		emptyList = new CircularlySingleLinkedList<String>();
 		
-		smallList = new CircularyDoubleLinkedList<String>();
+		smallList = new CircularlySingleLinkedList<String>();
 		smallList.addFirst("HEBER");
 		
-		largeList = new CircularyDoubleLinkedList<String>();
+		largeList = new CircularlySingleLinkedList<String>();
 		largeList.addFirst("HEBER");
 		largeList.addFirst("SARA");
 		largeList.addFirst("PAMELA");

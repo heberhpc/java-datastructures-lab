@@ -7,7 +7,7 @@
 
 package datastructures.list;
 
-public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
+public class CircularlyDynamicArrayList <E> extends AbstractCircularlyList<E>{
 	
 	//FIELDS
 	//size of list
@@ -22,7 +22,7 @@ public class CircularyDynamicArrayList <E> extends AbstractCircularyList<E>{
 	
 	//MAIN CONSTRUCTOR
 	@SuppressWarnings("unchecked")
-	public CircularyDynamicArrayList() {	
+	public CircularlyDynamicArrayList() {	
 		data = (E[]) (new Object[startSize]); 
 		size=0;
 	}

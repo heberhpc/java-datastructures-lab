@@ -5,33 +5,33 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import datastructures.list.CircularyDynamicArrayList;
-import datastructures.list.CircularyList;
+import datastructures.list.CircularlyDynamicArrayList;
+import datastructures.list.CircularlyList;
 
 
 
-class CircularyDynamicArrayListTest {
+class CircularlyDynamicArrayListTest {
 	
 	//---TEST INSTANCES---//
 	//EMPTY LIST
-	CircularyList<String> emptyList;
+	CircularlyList<String> emptyList;
 				
 	//SMALL LIST (ONE ELEMENT)
-	CircularyList<String> smallList;
+	CircularlyList<String> smallList;
 			
 	//LARGE LIST (MORE THAN ONE ELEMENT)
-	CircularyList<String> largeList;
+	CircularlyList<String> largeList;
 	
 
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		emptyList = new CircularyDynamicArrayList<String>();
+		emptyList = new CircularlyDynamicArrayList<String>();
 		
-		smallList = new CircularyDynamicArrayList<String>();
+		smallList = new CircularlyDynamicArrayList<String>();
 		smallList.addFirst("HEBER");
 		
-		largeList = new CircularyDynamicArrayList<String>();
+		largeList = new CircularlyDynamicArrayList<String>();
 		largeList.addFirst("HEBER");
 		largeList.addFirst("SARA");
 		largeList.addFirst("PAMELA");
